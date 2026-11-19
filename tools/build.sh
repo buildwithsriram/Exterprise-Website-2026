@@ -6,7 +6,7 @@
 set -e
 rm -rf dist && mkdir dist
 cp *.html style.css site.js robots.txt sitemap.xml llms.txt llms-full.txt agents.md favicon.ico favicon-32.png apple-touch-icon.png _headers _redirects dist/
-cp -R assets fonts vendor dist/
+cp -R assets fonts vendor .well-known dist/
 hash() { (sha1sum "$1" 2>/dev/null || shasum "$1") | cut -c1-8; }   # Linux / macOS
 css=$(hash style.css); js=$(hash site.js)
 for f in dist/*.html; do

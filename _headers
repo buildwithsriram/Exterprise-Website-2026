@@ -1,11 +1,29 @@
 # Cloudflare response headers. GitHub Pages ignores this file.
 
+# Security headers on every response.
+# Content-Security-Policy lists the only sources the site loads from: its own files, the YouTube
+# embed and the contact-form endpoint. The two sha256 values allow the inline scripts in 404.html;
+# if those scripts change, recompute them (the browser console prints the new value).
+# It runs as Report-Only first: violations appear in the browser console but nothing is blocked.
 /*
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'sha256-sA2F/XyeVvC1cCNXfcBrGpru8YEyXHKxUSfUGJqQ58o=' 'sha256-psah3RQK8vFoulBJu5bt6QHZjbzbNHk/OFDYb9hzzsA='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self' https://formsubmit.co; frame-src https://www.youtube-nocookie.com; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
   X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
-  X-Frame-Options: SAMEORIGIN
-  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
-  Strict-Transport-Security: max-age=31536000
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+
+# To enforce the policy once the console shows no violations, replace the Report-Only line above with:
+#  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-sA2F/XyeVvC1cCNXfcBrGpru8YEyXHKxUSfUGJqQ58o=' 'sha256-psah3RQK8vFoulBJu5bt6QHZjbzbNHk/OFDYb9hzzsA='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self' https://formsubmit.co; frame-src https://www.youtube-nocookie.com; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+# When Cloudflare Turnstile is added to the forms, add https://challenges.cloudflare.com to script-src and frame-src.
+# If Cloudflare Web Analytics is turned on, add https://static.cloudflareinsights.com to script-src
+# and https://cloudflareinsights.com to connect-src.
+
+# Keep the pages.dev preview addresses out of search results (only www.exterprise.us should be indexed).
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
 
 # Pages: always check for the latest deploy, so changes show up immediately
 /

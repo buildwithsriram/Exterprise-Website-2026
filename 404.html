@@ -24,7 +24,9 @@
 /* Old addresses (from the previous site) land here: send them to the matching new page. */
 (function () {
   var base = location.pathname.indexOf('/Exterprise/') === 0 ? '/Exterprise/' : '/';
-  var path = decodeURIComponent(location.pathname.slice(base.length)).toLowerCase().replace(/\.(php|aspx?|html?)$/, '').replace(/\/+$/, '');
+  var raw = location.pathname.slice(base.length), path;
+  try { raw = decodeURIComponent(raw); } catch (e) {}
+  path = raw.toLowerCase().replace(/\.(php|aspx?|html?)$/, '').replace(/\/+$/, '');
   var map = [
     [/contact-cent|call-cent|helpdesk|help-desk/, 'contact-center.html'],
     [/contact|get-in-touch|enquir|quote/, 'contact.html'],

@@ -1198,7 +1198,7 @@ void main(){vec2 uv=gl_FragCoord.xy/R;vec2 q=uv;q.y=1.-q.y;
   let last = null; try { last = JSON.parse(SS.get('xt-nav') || 'null'); } catch (e) {}
   const me = here(), back = nav.type === 'back_forward' || (last && last.from === me && last.to !== me);
   const saved = parseFloat(SS.get('xt-y:' + me));
-  const target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  let target = null; try { target = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch (e) {}   // malformed %-escapes in a crafted link
   let touched = false; ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(t => addEventListener(t, () => touched = true, { once: true, passive: true }));
   const place = () => { if (touched) return; if (back && !isNaN(saved)) go(saved); else if (target) go(0, target); else go(0); };
   if (last && last.to === me) SS.set('xt-nav', JSON.stringify({ from: last.from, to: me, done: 1 }));

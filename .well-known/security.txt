@@ -1,0 +1,7 @@
+# How to report a security issue with www.exterprise.us (RFC 9116).
+# PLACEHOLDER: replace the Contact address with a monitored inbox before go-live,
+# and move Expires forward at least once a year.
+Contact: mailto:security@exterprise.us
+Expires: 2027-11-19T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://www.exterprise.us/.well-known/security.txt
