@@ -4142,3 +4142,15 @@ html body .lx-hero .lx-logos-h{font-size:15px!important;max-width:130px}
 .xm-err a,.xp-fs.err a{color:#fff;text-decoration:underline}
 html:root body .xp-fs.err{color:#FFB4AA!important}
 /* <<< v86 */
+
+/* Phones: lift the hero copy and button clear of Safari's floating bottom toolbar */
+@media (max-width:760px){html body .lx-hero .lx-slides{min-height:calc(100svh - 124px)}}
+/* Phones: full-width pill buttons keep the label centred and pin the arrow to the right edge */
+@media (max-width:899px){
+  html body .px-final .px-actions .neo-btn:has(.neo-ic){position:relative;justify-content:center;padding-left:56px!important;padding-right:56px!important}
+  html body .px-final .px-actions .neo-btn .neo-ic{position:absolute;right:8px;top:0;bottom:0;margin:auto 0}
+}
+@media (max-width:600px){
+  html body main .wb-btns .neo-btn:has(.neo-ic){position:relative;justify-content:center;padding-left:56px!important;padding-right:56px!important}
+  html body main .wb-btns .neo-btn .neo-ic{position:absolute;right:8px;top:0;bottom:0;margin:auto 0}
+}
