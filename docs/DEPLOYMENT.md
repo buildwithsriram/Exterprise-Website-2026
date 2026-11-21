@@ -32,7 +32,7 @@
 | Path | What it is |
 |---|---|
 | `*.html` | One file per page (42 pages) plus `404.html` |
-| `style.css`, `site.js` | All styling and behaviour for every page |
+| `style.css`, `site.js` | All styling and behavior for every page |
 | `assets/` | Images and videos. Keep each file under 25 MB (Cloudflare limit). |
 | `fonts/`, `vendor/` | Web fonts, and the GSAP / ScrollTrigger / Lenis libraries (pinned versions) |
 | `robots.txt`, `sitemap.xml`, `llms.txt`, `llms-full.txt`, `agents.md` | Files for search engines and AI assistants |
@@ -63,7 +63,7 @@ The current website keeps running until step 12, and every step can be undone.
    plan.
 5. **Check the DNS records Cloudflare imported** against step 2, line by line.
    - Add anything missing.
-   - Set every mail-related record to **DNS only** (grey cloud).
+   - Set every mail-related record to **DNS only** (gray cloud).
    - Leave the `@` and `www` records as they are, still pointing at the old site.
 6. **Create the hosting.** Go to **Workers & Pages → Create → Import a repository → GitHub**, authorize
    access to **XVOXLABS/Exterprise**, then set:
@@ -122,7 +122,7 @@ The current website keeps running until step 12, and every step can be undone.
    ```bash
    npx wrangler dev
    ```
-   Then open http://localhost:8787. This runs the real Cloudflare behaviour, including redirects and headers.
+   Then open http://localhost:8787. This runs the real Cloudflare behavior, including redirects and headers.
 3. **If you changed page text, titles, descriptions or FAQs**, regenerate the SEO files:
    ```bash
    python3 tools/meta.py && python3 tools/faq.py && python3 tools/seo.py && python3 tools/stamp-assets.py
@@ -199,7 +199,7 @@ automatically.
 | Monthly | Search Console → **Pages** and **Sitemaps** for errors; Cloudflare build history; uptime alerts |
 | Every January | Update the copyright year in the footer of every page (search for `2021 Exterprise`) |
 | Yearly | Confirm the domain auto-renews and the payment card is valid; review who has access to GitHub and Cloudflare |
-| When needed | Update `vendor/` libraries only deliberately, and test every page afterwards |
+| When needed | Update `vendor/` libraries only deliberately, and test every page afterward |
 
 **Contact forms.** Both forms (the "Let's Talk" pop-up and the Contact page form) post to FormSubmit
 (formsubmit.co), which emails every submission to **contact@exterprise.us**. The code is the `v86` block at the

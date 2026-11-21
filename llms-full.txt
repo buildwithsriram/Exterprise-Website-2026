@@ -751,7 +751,7 @@ Summary: OCR-based data capture with centralized capture, cleanup and indexing, 
 End to end data entry services that include scanning, verifying and updating physical records.
 Talk to Us99.995%Accuracy of entered data2Levels of validation6Key services24x7Continuous processing
 ## Validated at Two Levels
-Manual entry uses the double-key method, and data is validated at two levels, data entry and data checking, for upwards of 99.995% accuracy.
+Manual entry uses the double-key method, and data is validated at two levels, data entry and data checking, for upward of 99.995% accuracy.
 A back-office team works with onsite data capture experts to deliver accurate data that exports to multiple formats and systems.
 ## Key Services
 ### Data Management

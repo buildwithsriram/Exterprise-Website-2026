@@ -35,7 +35,7 @@ The old site stays live until step 12, and you can undo the switch in about a mi
    plan. Cloudflare scans and copies your existing DNS records.
 5. **Check the copied records against your list from step 2**, line by line.
    - Add anything missing, especially **MX** and email **TXT/CNAME** records.
-   - Any record for mail (`mail`, `autodiscover`, `_domainkey`, `smtp`) must be **DNS only** (grey cloud).
+   - Any record for mail (`mail`, `autodiscover`, `_domainkey`, `smtp`) must be **DNS only** (gray cloud).
    - Leave the `@` and `www` records pointing at the old site for now.
 6. **Create the hosting:** Workers & Pages → **Create** → **Import a repository** → connect GitHub → choose
    **XVOXLABS/Exterprise** → branch `main`.

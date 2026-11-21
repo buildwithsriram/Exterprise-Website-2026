@@ -112,11 +112,11 @@ DNS.
    (for MX) exactly.
 3. Click **Save**.
 
-☐ **4.3** Make every email-related record grey (**DNS only**). This includes `mail`, `autodiscover`,
+☐ **4.3** Make every email-related record gray (**DNS only**). This includes `mail`, `autodiscover`,
 `*._domainkey`, `smtp`, `imap` and similar:
 
 1. Click **Edit** on the record.
-2. Switch **Proxy status** off, so the cloud turns **grey**.
+2. Switch **Proxy status** off, so the cloud turns **gray**.
 3. Click **Save**.
 
 MX and TXT records have no proxy switch, which is fine.

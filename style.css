@@ -193,7 +193,7 @@ ul{margin:0;padding:0;list-style:none}
 .pager .mid{justify-content:center;align-items:center;padding:22px 28px}
 
 /* reveal */
-@media (prefers-reduced-motion:reduce) and (max-width:1px) /* motion switch: remove "and (max-width:1px)" to honour OS setting */{*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media (prefers-reduced-motion:reduce) and (max-width:1px) /* motion switch: remove "and (max-width:1px)" to honor OS setting */{*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
 /* ---------- Responsive ---------- */
 @media (max-width:1080px){
@@ -428,7 +428,7 @@ h1,h2,h3{letter-spacing:-.03em}
 @keyframes gxarrow{0%{transform:translateX(0)}45%{transform:translateX(22px)}46%{transform:translateX(-22px)}100%{transform:translateX(0)}}
 /* 6 · asterisk spins, grows, glows */
 /* counter slides */
-@media (prefers-reduced-motion:reduce) and (max-width:1px) /* motion switch: remove "and (max-width:1px)" to honour OS setting */{.gx-card.is-in::after{animation:none}.gx-card.is-in .gx-shine{animation:none}}
+@media (prefers-reduced-motion:reduce) and (max-width:1px) /* motion switch: remove "and (max-width:1px)" to honor OS setting */{.gx-card.is-in::after{animation:none}.gx-card.is-in .gx-shine{animation:none}}
 
 /* ============ v4.5 — Matrix: "ember" — black squircle widgets, warm horizon glow ============ */
 /* horizon: a black planet edge lit from behind */
@@ -487,7 +487,7 @@ h1,h2,h3{letter-spacing:-.03em}
 /* card pill */
 .neo-ic{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.35);transition:background .45s,color .45s}
 .neo-ic svg{width:15px;height:15px}
-@media (prefers-reduced-motion:reduce) and (max-width:1px) /* motion switch: remove "and (max-width:1px)" to honour OS setting */{.neo,.neo svg{animation:none!important}.neo::after{animation:none!important}}
+@media (prefers-reduced-motion:reduce) and (max-width:1px) /* motion switch: remove "and (max-width:1px)" to honor OS setting */{.neo,.neo svg{animation:none!important}.neo::after{animation:none!important}}
 
 /* ============ v4.7 — subtle red-orange vortex behind the frosted cards ============ */
 
@@ -570,7 +570,7 @@ h1,h2,h3{letter-spacing:-.03em}
 
 /* ---------- responsive ---------- */
 @media (hover:none){.px-cursor{display:none}}
-@media (prefers-reduced-motion:reduce) and (max-width:1px) /* motion switch: remove "and (max-width:1px)" to honour OS setting */{.px-video-ring,.px .footer .wordmark{animation:none!important}}
+@media (prefers-reduced-motion:reduce) and (max-width:1px) /* motion switch: remove "and (max-width:1px)" to honor OS setting */{.px-video-ring,.px .footer .wordmark{animation:none!important}}
 /* v5 fixes */
 .px-sec{padding:clamp(48px,5.5vw,80px) 0}
 .px-final-sec{padding-bottom:clamp(90px,10vw,140px)}
@@ -616,7 +616,7 @@ h1,h2,h3{letter-spacing:-.03em}
   .stg-left,.stg-right{align-items:center;max-width:460px}
   .stg-left{order:2}.stg-right{order:3}
 }
-@media (prefers-reduced-motion:reduce) and (max-width:1px) /* motion switch: remove "and (max-width:1px)" to honour OS setting */{.stg-stars i,.slab-shine{animation:none!important}}
+@media (prefers-reduced-motion:reduce) and (max-width:1px) /* motion switch: remove "and (max-width:1px)" to honor OS setting */{.stg-stars i,.slab-shine{animation:none!important}}
 
 /* =====================================================================
    v5.3 — white liquid buttons · editorial Partner title · ServiceNow tint · data-viz KPIs
@@ -679,7 +679,7 @@ h1,h2,h3{letter-spacing:-.03em}
 .kpi:hover .pips i:nth-child(2){transition-delay:.06s}.kpi:hover .pips i:nth-child(3){transition-delay:.12s}
 
 @media (max-width:1000px){.kpis{margin:0 auto}.kpi{text-align:left}}
-@media (prefers-reduced-motion:reduce) and (max-width:1px) /* motion switch: remove "and (max-width:1px)" to honour OS setting */{.neo::before{animation:none!important}}
+@media (prefers-reduced-motion:reduce) and (max-width:1px) /* motion switch: remove "and (max-width:1px)" to honor OS setting */{.neo::before{animation:none!important}}
 
 /* ---- v5.3 UtterNow: headline row + big film on a live sound-floor ---- */
 .ut-stage{position:relative;padding-bottom:70px}
@@ -700,7 +700,7 @@ h1,h2,h3{letter-spacing:-.03em}
 @media (max-width:900px){.ut-video{border-radius:20px}.ut-play{width:72px;height:72px;margin:-36px 0 0 -36px}}
 
 /* ---- AI CTA: ember card restored, full width ---- */
-@media (prefers-reduced-motion:reduce) and (max-width:1px) /* motion switch: remove "and (max-width:1px)" to honour OS setting */{.ut-pulse{animation:none!important}}
+@media (prefers-reduced-motion:reduce) and (max-width:1px) /* motion switch: remove "and (max-width:1px)" to honor OS setting */{.ut-pulse{animation:none!important}}
 /* liquid fill — rise with a soft meniscus that flattens */
 .neo::before{left:-12%;right:-12%;top:-10%;bottom:-10%;width:auto;height:auto;aspect-ratio:auto;rotate:none;animation:none;
   border-radius:50% 50% 0 0/80% 80% 0 0;transform:translateY(110%);transition:transform .75s cubic-bezier(.22,.8,.2,1),border-radius .9s cubic-bezier(.22,.8,.2,1)}
@@ -713,7 +713,7 @@ h1,h2,h3{letter-spacing:-.03em}
 
 /* =====================================================================
    v5.4 — Partner stage: pinned, white kinetic title, ServiceNow gradient light,
-   badge card splits to reveal the reseller licence card, robust KPIs
+   badge card splits to reveal the reseller license card, robust KPIs
    ===================================================================== */
 :root{--sn1:#62D84E;--sn2:#1FC7B6;--sn3:#3D8BFF;--sn4:#032D42}
 .ptr{position:relative;height:270vh;background:#05070A;color:#F5F3EF;overflow:clip;--p:0}
@@ -787,7 +787,7 @@ h1,h2,h3{letter-spacing:-.03em}
   .kt-1{font-size:13vw;white-space:normal}.kt-2{font-size:6.4vw;white-space:normal}
   .p2-cards{width:100%;height:300px;min-height:0}.p2-card{--cw:min(40vw,190px)}
 }
-@media (prefers-reduced-motion:reduce) and (max-width:1px) /* motion switch: remove "and (max-width:1px)" to honour OS setting */{.p2-mesh i,.lic-foil,.lic-sheen,.lic-seal-ring{animation:none!important}}
+@media (prefers-reduced-motion:reduce) and (max-width:1px) /* motion switch: remove "and (max-width:1px)" to honor OS setting */{.p2-mesh i,.lic-foil,.lic-sheen,.lic-seal-ring{animation:none!important}}
 .ptr .p2-stick{align-items:flex-start}
 .ptr .p2-in{padding-top:max(96px,12vh)}
 .kt-2{display:inline-block}
@@ -803,7 +803,7 @@ h1,h2,h3{letter-spacing:-.03em}
 .un::after{background:linear-gradient(180deg,#060607 0%,rgba(12,21,32,0) 16%,rgba(12,21,32,0) 84%,#060607 100%)!important}
 /* chip */
 /* title + copy */
-/* buttons in UtterNow colours (liquid fill kept) */
+/* buttons in UtterNow colors (liquid fill kept) */
 .un .neo-white{background:var(--ung);color:#003735;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 10px 30px -12px rgba(62,205,198,.7)}
 .un .neo-white .neo-ic{background:#003735;color:var(--un2)}
 .un .neo-white::before{background:radial-gradient(circle at 50% 22%,#9FF5F0,#62E9E2 60%,#50DAD3)}
@@ -824,7 +824,7 @@ h1,h2,h3{letter-spacing:-.03em}
 @keyframes kenb{from{transform:scale(1.04)}to{transform:scale(1.14) translate(-1.5%,-1%)}}
 /* UtterNow-style waveform floor */
 .un .ut-stage{padding-bottom:0}
-@media (prefers-reduced-motion:reduce) and (max-width:1px) /* motion switch: remove "and (max-width:1px)" to honour OS setting */{.un .ut-poster{animation:none!important}}
+@media (prefers-reduced-motion:reduce) and (max-width:1px) /* motion switch: remove "and (max-width:1px)" to honor OS setting */{.un .ut-poster{animation:none!important}}
 
 /* ---- v5.5 heading system: white kinetic title, outline second line that fills, gradient underline ---- */
 :root{--ktg:linear-gradient(90deg,#FFE2A8,#F39C1A 55%,#E41824)}
@@ -851,7 +851,7 @@ h1,h2,h3{letter-spacing:-.03em}
    ===================================================================== */
 /* one image spans all three cards: same size, positions 0% / 50% / 100% line it up across the gaps */
 @keyframes silk{from{background-position-y:58%}to{background-position-y:70%}}
-/* centre card: glossy asterisk on dashed guides */
+/* center card: glossy asterisk on dashed guides */
 
 /* =====================================================================
    v5.7 — "Contour field": slow-morphing topographic light lines (WebGL) replaces the spiral & glass ribbon
@@ -915,7 +915,7 @@ h1,h2,h3{letter-spacing:-.03em}
 .ill .ring{animation:iring 3s ease-out infinite;animation-delay:var(--dl,0s)}
 @keyframes iring{0%{transform:scale(1);opacity:.9}100%{transform:scale(3.2);opacity:0}}
 /* post cards: illustration placement */
-@media (prefers-reduced-motion:reduce) and (max-width:1px) /* motion switch: remove "and (max-width:1px)" to honour OS setting */{.ill *{animation:none!important}.ill .draw,.ill .ok,.ill .tick,.ill .fill{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce) and (max-width:1px) /* motion switch: remove "and (max-width:1px)" to honor OS setting */{.ill *{animation:none!important}.ill .draw,.ill .ok,.ill .tick,.ill .fill{stroke-dashoffset:0}}
 
 /* =====================================================================
    v5.9 — Matrix cards: no header, charcoal glass + subtle yellow (like the post cards), ServiceNow pre-highlighted
@@ -1195,7 +1195,7 @@ body.snp{--sn1:#62D84E;--sn2:#1FC7B6;--sn3:#3D8BFF;--sn4:#032D42;--ktg:linear-gr
 .sg-spot{position:absolute;inset:0;z-index:0;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .5s}
 .sg-edge{position:absolute;left:10%;right:10%;bottom:-1px;height:2px;z-index:2;pointer-events:none;border-radius:2px;opacity:.0;transform:scaleX(.3);transition:opacity .6s,transform .9s cubic-bezier(.22,.8,.2,1)}
 
-/* ========== v6.8 — AI CTA (ai3) in ServiceNow colours ========== */
+/* ========== v6.8 — AI CTA (ai3) in ServiceNow colors ========== */
 
 /* ========== v6.8 — Credentials bento ========== */
 .bt-sec{padding:clamp(40px,6vw,90px) 0 clamp(60px,7vw,110px)!important}
@@ -1233,7 +1233,7 @@ body.snp{--sn1:#62D84E;--sn2:#1FC7B6;--sn3:#3D8BFF;--sn4:#032D42;--ktg:linear-gr
 .bt-orbit.o3 b{display:none}
 .bt-prem .bt-vis::before{content:"";position:absolute;left:50%;top:50%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;filter:blur(10px);animation:btpulse 5s ease-in-out infinite}
 @keyframes btpulse{50%{opacity:.55;scale:1.08}}
-/* Reseller: licence card */
+/* Reseller: license card */
 /* CTA: blueprint */
 /* Industries */
 @media (max-width:1000px){
@@ -1260,7 +1260,7 @@ body.snp{--sn1:#62D84E;--sn2:#1FC7B6;--sn3:#3D8BFF;--sn4:#032D42;--ktg:linear-gr
 .sv-card.sgl,.sgr{transition:--g1 .7s ease,--g2 .7s ease,--g3 .7s ease,box-shadow .6s,background .6s,transform .6s cubic-bezier(.22,.8,.2,1)!important}
 /* hover → Exterprise logo palette (cream → amber → orange-red) */
 .bt-tile:hover,.sgl:hover,.ibt-tile:hover,.sgr:hover,.sgl:focus-visible{--g1:#FFD58A;--g2:#F39C1A;--g3:#E8421F}
-/* shared colour wiring */
+/* shared color wiring */
 .bt-tile::after,.sgl::after,.ibt-tile::after{background:conic-gradient(from var(--ang),transparent 0deg,color-mix(in srgb,var(--g1) 35%,#fff) 40deg,var(--g1) 90deg,var(--g2) 140deg,var(--g3) 190deg,transparent 250deg,transparent 360deg)!important}
 .bt-tile .gx-fill,.ibt-tile .gx-fill{background:radial-gradient(circle,color-mix(in srgb,var(--g2) 20%,transparent) 0%,color-mix(in srgb,var(--g3) 9%,transparent) 34%,transparent 70%)!important}
 .sg-edge{background:linear-gradient(90deg,transparent,var(--g1) 25%,var(--g2) 50%,var(--g3) 75%,transparent)!important;box-shadow:0 0 18px 2px color-mix(in srgb,var(--g2) 60%,transparent),0 -20px 40px color-mix(in srgb,var(--g2) 25%,transparent)!important}
@@ -1547,7 +1547,7 @@ html.xm-lock,html.xm-lock body{overflow:hidden}
 @keyframes cpfloat{50%{translate:0 -8px}}
 /* sub-page hero frame */
 /* landing triptych */
-/* hero posters: neutralise the old photo-frame image rules */
+/* hero posters: neutralize the old photo-frame image rules */
 
 /* ========== v7.6 — Brand banner ("the world works with…" moment) in glass ========== */
 .wb-sec{padding:clamp(40px,6vw,90px) 0!important}
@@ -1608,7 +1608,7 @@ html.xm-lock,html.xm-lock body{overflow:hidden}
 
 /* — 01 swirl ribbon (ServiceNow green) — */
 
-/* — 02 orbit rings (navy · teal · orange, centred) — */
+/* — 02 orbit rings (navy · teal · orange, centered) — */
 
 /* — 03 circle stage (Exterprise amber) — */
 
@@ -1645,7 +1645,7 @@ html.xm-lock,html.xm-lock body{overflow:hidden}
 .lx-hero.has-film .lx-canvas{opacity:.34}
 
 /* ========== v8.0 — ServiceNow sections: SN palette campaign + elite glass ========== */
-/* sub-page hero media: video over still, glass bezel + travelling sheen */
+/* sub-page hero media: video over still, glass bezel + traveling sheen */
 .ih-media.ih-campaign{box-shadow:0 0 0 1px rgba(98,216,78,.28),0 60px 120px -50px #000,0 0 110px -30px rgba(31,199,182,.45),0 0 60px -30px rgba(61,139,255,.5)}
 .ih-media.ih-campaign .ih-film{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 28%;z-index:1}
 .ih-glass{position:absolute;inset:0;z-index:3;border-radius:inherit;pointer-events:none;overflow:hidden;
@@ -2031,7 +2031,7 @@ html.xm-lock,html.xm-lock body{overflow:hidden}
 .header .menu-btn{width:48px;height:48px}
 @media (max-width:900px){.header>.wrap{height:62px;padding:0 8px 0 18px}.header .logo img{height:26px}}
 
-/* ========== v12 — What we do: ServiceNow tile (Workflows + AI) on top, then three labelled rows ========== */
+/* ========== v12 — What we do: ServiceNow tile (Workflows + AI) on top, then three labeled rows ========== */
 /* ServiceNow tile — ServiceNow green/teal glass */
 /* group rows */
 
@@ -2327,7 +2327,7 @@ main>section:not(:first-child){-webkit-mask-image:none!important;mask-image:none
 
 /* ===================== v23 giant background wordmarks (8%, last layer) ===================== */
 
-/* v23.1 ESM card: brand-colour film (orange-to-gold light ribbon, warm loft); subject framed clear of the glass panel */
+/* v23.1 ESM card: brand-color film (orange-to-gold light ribbon, warm loft); subject framed clear of the glass panel */
 
 /* ===================== v24 Service Offerings: tabbed explorer (servicenow.html) ===================== */
 .sot{margin-top:clamp(26px,3vw,44px)}
@@ -2868,7 +2868,7 @@ dialog.qv{max-width:min(980px,calc(100vw - 24px))}
 /* <<< v40 smartsourcing bento cast */
 
 /* >>> v40 section feathering */
-/* v40 — every home section feathers into the page canvas at its top and bottom, so neighbours meet in a soft dark band
+/* v40 — every home section feathers into the page canvas at its top and bottom, so neighbors meet in a soft dark band
    instead of a hard edge (the hero and products chapters handle their own edges) */
 html body main > #matrix,html body main > #partner-wrap,html body main > #smartsourcing,html body main > #rcm,html body main > .bt-sec,html body main > #contact{
   --fe:clamp(64px,9vw,130px);
@@ -2896,7 +2896,7 @@ footer::before{content:"";position:absolute;left:0;right:0;top:-1px;height:120px
 
 /* >>> v41 sub-pages */
 /* v41 — sub-pages match the home: full-bleed hero media, film-backed frosted Let's Talk, feathered section joins,
-   one card language (dark grey at rest; links turn white on hover; contained 3D tilt) */
+   one card language (dark gray at rest; links turn white on hover; contained 3D tilt) */
 
 /* full-bleed hero */
 html body .page-hero.h41{position:relative;min-height:clamp(560px,80vh,860px);display:flex;align-items:flex-end;overflow:hidden;isolation:isolate;padding:0!important;background:#050508}
@@ -2976,7 +2976,7 @@ html body.snsub main > section.sv-reel{display:none!important}
 
 /* >>> v42 card system */
 /* v42 — one card system everywhere (matches the home What We Do cards):
-   solid dark grey card, framed art stage, no glow blobs / spotlight / conic rims;
+   solid dark gray card, framed art stage, no glow blobs / spotlight / conic rims;
    link cards turn solid white on hover with a contained tilt; info cards get a quiet rim + lift */
 html body main .sv-card.sv-card{background:#1A1A1E!important;background-image:none!important;border:1px solid rgba(255,255,255,.07)!important;box-shadow:none!important;
   -webkit-backdrop-filter:none!important;backdrop-filter:none!important;color:#F5F3EF;isolation:isolate;overflow:hidden}
@@ -3113,7 +3113,7 @@ html body .quote-row{align-items:center}
 
 /* >>> v44 readability */
 /* v44 — readability: body copy, list points, captions and footer links in full white at a heavier weight.
-   Accent labels keep their colour; white (hover/active) cards keep their navy text (higher-specificity rules). */
+   Accent labels keep their color; white (hover/active) cards keep their navy text (higher-specificity rules). */
 html:root body :is(p,li,small,figcaption,dd,blockquote,label):not(:where(.xp-kick,.xp-country,.xp-role,.fc-h,.xp-fs,.qv-l,.lx-eb,.stg-label,.un-chip,.wxm-g,.sot-meta,.nb-chip,.mw-tag,.ew-tag,.nv-eyebrow,.eb,.mx2-more-l)){color:#fff!important;-webkit-text-fill-color:currentColor!important;font-weight:450}
 html:root body :is(.nb-mt span,.nb-lab,.nb-svc,.wx-n,.xp-n,.wxm-t){color:#fff;font-weight:500}
 html:root body footer a,html:root body .footer-links a{color:#fff!important;font-weight:450;opacity:1!important}
@@ -3214,7 +3214,7 @@ html:root body :is(.sv-pts,.xp-pts) li{font-size:15px}
 
 /* >>> v47 frosted glass */
 /* v47 — one frosted-glass recipe for every glass surface: clear tint with a corner highlight, strong blur that lifts the
-   colour behind it, a bright top rim, soft depth, almost no grain. Sections that hold glass get soft light behind them
+   color behind it, a bright top rim, soft depth, almost no grain. Sections that hold glass get soft light behind them
    (two orbs + a faint grid) so the frost has something to blur. */
 html body{--fg-bg:radial-gradient(130% 90% at 0% 0%,rgba(255,255,255,.12),rgba(255,255,255,0) 52%),linear-gradient(165deg,rgba(255,255,255,.085),rgba(255,255,255,.025) 48%,rgba(255,255,255,.055));
   --fg-blur:blur(24px) saturate(185%) brightness(1.05);
@@ -3264,8 +3264,8 @@ html body .footer .wordmark,html body.px .footer .wordmark{display:block;positio
 
 /* >>> v49 products: expanding panels */
 /* v49 — Moveworks / EmployeeWorks / UtterNow as one full-width section of expanding glass panels. Hover (or tap) a
-   panel to open it: info on the left, its film on the right. The whole section follows the open product: colour wash,
-   accent colour and a huge product name behind the panels. */
+   panel to open it: info on the left, its film on the right. The whole section follows the open product: color wash,
+   accent color and a huge product name behind the panels. */
 @property --acc{syntax:'<color>';inherits:true;initial-value:#9A7CFF}
 .pc{position:relative;isolation:isolate;overflow:hidden;padding:clamp(84px,9vw,132px) 0 clamp(84px,9vw,124px);background:#06060A;--acc:#9A7CFF;transition:--acc .8s ease}
 .pc[data-act="1"]{--acc:#8EDB7C}.pc[data-act="2"]{--acc:#5ED8E0}
@@ -3395,7 +3395,7 @@ html body .pc .pc-card.on .pc-mini{opacity:0;transform:none}
 }
 /* <<< v49.2 products */
 
-/* >>> v49.3 products: heading on top, full-bleed 15% name under it, coloured product title inside the open panel */
+/* >>> v49.3 products: heading on top, full-bleed 15% name under it, colored product title inside the open panel */
 html body .pc .pc-head{position:relative;z-index:2;margin-bottom:clamp(8px,1.2vw,16px)}
 html body .pc .pc-head h2{font-size:clamp(32px,3.6vw,54px);max-width:17ch}
 html body .pc .pc-giant{width:100vw;margin-left:calc(50% - 50vw);padding:0 2vw;box-sizing:border-box;margin-bottom:calc(var(--gh,180px) * -.22)}
@@ -3521,7 +3521,7 @@ html body .ibt-sec .ibt .ibt-units,html body .ibt-sec .ibt .ibt-stars{position:r
 /* <<< v51 products on phones */
 
 /* >>> v52 smooth section joins */
-/* the Let's Talk film + backdrop fade in from the page colour instead of starting on a hard edge */
+/* the Let's Talk film + backdrop fade in from the page color instead of starting on a hard edge */
 html body .px-final-sec.has-film :is(.pt-film,.gx-bg){-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 26%,#000 100%);mask-image:linear-gradient(180deg,transparent 0,#000 26%,#000 100%)}
 /* <<< v52 smooth section joins */
 
@@ -3956,7 +3956,7 @@ html body section.sn-join .bta .px-cred-l{color:rgba(255,255,255,.78)!important;
 @media (max-width:899px){html body .wxm-grid[data-panel="prd"] .wxm-tile:last-child:nth-child(odd){grid-column:1/-1}}
 /* <<< v71 */
 
-/* >>> v73 sub-page cards: one flat frosted dark grey (no gradient layers), brand amber accents, no 01/02/03
+/* >>> v73 sub-page cards: one flat frosted dark gray (no gradient layers), brand amber accents, no 01/02/03
    Clickable cards keep their cream hover; the rest get an amber outline. ServiceNow bento tiles (ibt) keep their own look. */
 html body.inr main .gx-card.gx-card:not(.ibt-tile):not(a:hover):not(.hov),
 html body.inr main .gx-card.gx-card:not(.ibt-tile):not(a){background:rgba(24,24,30,.52)!important;
@@ -4145,7 +4145,7 @@ html:root body .xp-fs.err{color:#FFB4AA!important}
 
 /* Phones: lift the hero copy and button clear of Safari's floating bottom toolbar */
 @media (max-width:760px){html body .lx-hero .lx-slides{min-height:calc(100svh - 124px)}}
-/* Phones: full-width pill buttons keep the label centred and pin the arrow to the right edge */
+/* Phones: full-width pill buttons keep the label centered and pin the arrow to the right edge */
 @media (max-width:899px){
   html body .px-final .px-actions .neo-btn:has(.neo-ic){position:relative;justify-content:center;padding-left:56px!important;padding-right:56px!important}
   html body .px-final .px-actions .neo-btn .neo-ic{position:absolute;right:8px;top:0;bottom:0;margin:auto 0}

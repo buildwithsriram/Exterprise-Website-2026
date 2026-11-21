@@ -10,7 +10,7 @@ from global_land_mask import globe
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 W, H = 1200, 453                 # viewBox; equirectangular
-LON0, LAT0, LAT1 = -188.5, 78, -58  # map centred between Dallas and India so the phone crop keeps every pin
+LON0, LAT0, LAT1 = -188.5, 78, -58  # map centered between Dallas and India so the phone crop keeps every pin
 STEP = 1.6                        # degrees between dots
 
 def xy(lat, lon):

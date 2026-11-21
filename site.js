@@ -1,5 +1,5 @@
 (() => {
-  // Motion switch: false = full motion for everyone (designer review). Set to matchMedia('(prefers-reduced-motion: reduce)').matches to honour the OS setting.
+  // Motion switch: false = full motion for everyone (designer review). Set to matchMedia('(prefers-reduced-motion: reduce)').matches to honor the OS setting.
   window.__CALM = false;
   /* ===================== v86 form delivery: every contact form posts here and the message is emailed to contact@exterprise.us ===================== */
   // FormSubmit (formsubmit.co) relays each submission to the inbox below. The very first submission sends a one-time
@@ -9,7 +9,7 @@
   window.__xtSend = async (fields) => {
     const ep = window.XT_FORM_ENDPOINT || 'https://formsubmit.co/ajax/' + window.XT_INBOX;
     const body = Object.assign({
-      _subject: 'Website enquiry from ' + [fields.Name, fields.Company].filter(v => v && v !== '-').join(', '),
+      _subject: 'Website inquiry from ' + [fields.Name, fields.Company].filter(v => v && v !== '-').join(', '),
       _template: 'table', _captcha: 'false', _replyto: fields.Email || ''
     }, fields);
     const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 20000);
@@ -390,7 +390,7 @@ void main(){vec2 uv=gl_FragCoord.xy/R;vec2 p=(gl_FragCoord.xy-.5*R)/R.y;
     requestAnimationFrame(frame);
   });
 
-  /* ===================== Premier Partner: badge card splits into badge + reseller licence as you scroll
+  /* ===================== Premier Partner: badge card splits into badge + reseller license as you scroll
      (native scroll → one CSS variable; no animation-library or motion-setting dependency) ===================== */
   document.querySelectorAll('section.ptr').forEach(sec => {
     const stick = sec.querySelector('.p2-stick');
@@ -457,7 +457,7 @@ vec3 rib(vec2 p,float off,float amp,float w,float sp,float ph,float g0,float g1)
   float ad=abs(d);
   float body=smoothstep(1.02,.86,ad);
   float face=tw>0.?1.:.42;
-  float fib=smoothstep(.07,0.,abs(fract(d*6.5+.5)-.5))*body;   // silk fibres
+  float fib=smoothstep(.07,0.,abs(fract(d*6.5+.5)-.5))*body;   // silk fibers
   float sheen=pow(max(1.-ad,0.),2.2);
   float edge=smoothstep(.16,0.,abs(ad-.97))*.9;                  // bright rim
   float pinch=.35/(.18+abs(tw));                                 // brighter where it turns
@@ -752,7 +752,7 @@ void main(){vec2 uv=gl_FragCoord.xy/R;vec2 q=uv;q.y=1.-q.y;
       card && card.addEventListener('pointerenter', () => { const now = Date.now(); if (now - busy < 1200) return; busy = now; count(el); }); });
     // ambient orb drifts with scroll
     const orb = document.querySelector('.px-orb'); if (orb) gsap.fromTo(orb, { y: 80 }, { y: -120, ease: 'none', scrollTrigger: { trigger: orb.parentElement, start: 'top bottom', end: 'bottom top', scrub: 1 } });
-    // ---- v5.4 Partner stage: kinetic title + pinned split of the badge card into badge + reseller licence ----
+    // ---- v5.4 Partner stage: kinetic title + pinned split of the badge card into badge + reseller license ----
     // ---- every .kt heading: letters rise in, outline line fills, weight swells near the cursor ----
     const splitChars = el => { if (el.dataset.split) return; el.dataset.split = '1';
       const walk = n => [...n.childNodes].forEach(c => {
@@ -796,7 +796,7 @@ void main(){vec2 uv=gl_FragCoord.xy/R;vec2 q=uv;q.y=1.-q.y;
         const ill = card.querySelector('.ill'); if (ill) gsap.fromTo(ill, { y: 50, scale: .94 }, { y: -30, scale: 1, ease: 'none', scrollTrigger: { trigger: it, start: 'top bottom', end: 'top 20%', scrub: true } });
       });
     });
-    // ---- featured showcase: pinned, cards slide sideways; centre card scales up, others tilt away ----
+    // ---- featured showcase: pinned, cards slide sideways; center card scales up, others tilt away ----
     document.querySelectorAll('.scx').forEach(sec => {
       const stick = sec.querySelector('.scx-stick'), track = sec.querySelector('.scx-track'), cards = [...sec.querySelectorAll('.sc-card')];
       if (getComputedStyle(stick).position !== 'sticky') { cards.forEach(c => c.classList.add('on')); return; }
@@ -1345,7 +1345,7 @@ document.querySelectorAll('.hc-card .hc-tog').forEach(b => b.addEventListener('c
 })();
 
 
-/* ===================== v39 What We Do photo-stack cards: 3D tilt on pointer, centred-card focus + dots on swipe rails ===================== */
+/* ===================== v39 What We Do photo-stack cards: 3D tilt on pointer, centered-card focus + dots on swipe rails ===================== */
 (() => {
   const rail = document.querySelector('.wx-rail'); if (!rail) return;
   const cards = [...rail.querySelectorAll('.wx-card')], dots = [...document.querySelectorAll('.wx-dots i')];
@@ -1357,7 +1357,7 @@ document.querySelectorAll('.hc-card .hc-tog').forEach(b => b.addEventListener('c
         c.style.setProperty('--mx', x.toFixed(3)); c.style.setProperty('--my', y.toFixed(3)); }); });
     c.addEventListener('pointerleave', () => { cancelAnimationFrame(raf); c.style.setProperty('--mx', '0'); c.style.setProperty('--my', '0'); });
   });
-  // swipe rail (below 900px): the card nearest the centre is the active (gold) one
+  // swipe rail (below 900px): the card nearest the center is the active (gold) one
   let tk = 0;
   const pick = () => { tk = 0; if (wide.matches) { cards.forEach(c => c.classList.remove('is-on')); return; }
     const r = rail.getBoundingClientRect(), mid = r.left + r.width / 2; let best = 0, bd = 1e9;
@@ -1532,7 +1532,7 @@ document.querySelectorAll('.hc-card .hc-tog').forEach(b => b.addEventListener('c
 
 
 
-/* ===================== v49 products: expanding panels (hover or tap opens one; section colour + giant name follow it) ===================== */
+/* ===================== v49 products: expanding panels (hover or tap opens one; section color + giant name follow it) ===================== */
 (() => {
   const sec = document.querySelector('section.pc'); if (!sec) return;
   const cards = [...sec.querySelectorAll('.pc-card')], films = cards.map(c => c.querySelector('.pc-film')), words = [...sec.querySelectorAll('.pc-giant span')];
