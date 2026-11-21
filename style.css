@@ -3920,7 +3920,7 @@ html body section.sn-join .bta .px-cred-l{color:rgba(255,255,255,.78)!important;
 }
 /* <<< v69 */
 
-/* >>> v70 Optimise Your Business: all six cards on one line (desktop). Closed cards are photo strips
+/* >>> v70 Optimize Your Business: all six cards on one line (desktop). Closed cards are photo strips
    with the name running up the side; the open card keeps photo + details + links + View More. */
 @media (min-width:1000px){
   html body section.ra .hc-grid{gap:12px!important;height:clamp(460px,58vh,520px)}
@@ -4153,4 +4153,10 @@ html:root body .xp-fs.err{color:#FFB4AA!important}
 @media (max-width:600px){
   html body main .wb-btns .neo-btn:has(.neo-ic){position:relative;justify-content:center;padding-left:56px!important;padding-right:56px!important}
   html body main .wb-btns .neo-btn .neo-ic{position:absolute;right:8px;top:0;bottom:0;margin:auto 0}
+}
+/* Phones and tablets: room between a heading, its underline and the text below it */
+@media (max-width:899px){
+  html body .ktx .kt-2::after{margin-top:.34em}
+  html body .kt-solo .kt-1::after{margin-top:.24em}
+  html body section.ra .ra-head>.nb-side>p{margin-top:22px!important}
 }
