@@ -4,13 +4,13 @@
 
 | | |
 |---|---|
-| **What it is** | A static website: HTML, CSS and JavaScript files. No server code, database or framework. |
+| **What it is** | A static website (HTML, CSS and JavaScript files) plus one small Cloudflare function that emails contact-form submissions. No database or framework. |
 | **Source of truth** | GitHub repository **XVOXLABS/Exterprise**, branch **`main`** |
 | **Hosting** | **Cloudflare** (Workers static assets, free plan). Deploys automatically on every push to `main`. |
 | **Domain and DNS** | `exterprise.us`, with DNS on Cloudflare. `www.exterprise.us` is the main address; `exterprise.us` redirects to it. |
 | **Build** | `tools/build.sh` copies the public files to `dist/` and stamps CSS/JS versions. It runs automatically. |
 | **Backup copy** | GitHub Pages: https://xvoxlabs.github.io/Exterprise/ (same repository, optional) |
-| **Contact forms** | The pop-up and the Contact page form send submissions through FormSubmit (formsubmit.co) to contact@exterprise.us (see section 8). |
+| **Contact forms** | The pop-up and the Contact page form send submissions through the site's own Cloudflare function and Resend to contact@exterprise.us (see section 8). |
 | **Cost** | $0, apart from the domain renewal. |
 
 ---
@@ -201,22 +201,28 @@ automatically.
 | Yearly | Confirm the domain auto-renews and the payment card is valid; review who has access to GitHub and Cloudflare |
 | When needed | Update `vendor/` libraries only deliberately, and test every page afterward |
 
-**Contact forms.** Both forms (the "Let's Talk" pop-up and the Contact page form) post to FormSubmit
-(formsubmit.co), which emails every submission to **contact@exterprise.us**. The code is the `v86` block at the
-top of `site.js` (`window.__xtSend`); the inbox is `window.XT_INBOX`.
+**Contact forms.** Both forms (the "Let's Talk" pop-up and the Contact page form) post to the site's own
+Cloudflare function, `functions/api/contact.js` (address `/api/contact`). It checks each submission and emails it to
+**contact@exterprise.us** through Resend (resend.com), sent from website@exterprise.us. Nothing is stored. The visitor
+sees success only once Resend has accepted the email; if Resend is busy the function retries for up to about 12
+seconds. There is no limit on how many people can submit. The browser side is the `v87` block at the top of
+`site.js` (`window.__xtSend`).
 
-- **One-time activation:** the first submission after launch makes FormSubmit send an "Activate form" email to
-  contact@exterprise.us. Click its button once. Until then, submissions are not delivered.
-- **Reply:** each email arrives as a table (name, email, company, phone, topics, message, page). Hitting Reply
-  answers the visitor directly.
-- **Spam:** a hidden field catches simple bots. If spam grows, add FormSubmit's captcha or move to another service.
+- **Settings** live in the Cloudflare Pages project, **Settings > Variables and Secrets**, for both Production and
+  Preview: `RESEND_API_KEY` (secret, required) and `TURNSTILE_SECRET_KEY` (secret, optional). Optional:
+  `MAIL_TO` (default contact@exterprise.us, comma-separate several) and `MAIL_FROM`. Changes apply to the next deploy.
+- **Resend** sends for exterprise.us after its DNS records (DKIM, plus SPF and MX on the `send` subdomain) are in
+  GoDaddy. They don't touch the Microsoft 365 email records. Resend's free plan sends 100 emails a day and 3,000 a
+  month; above that, submissions fail with an error until the paid plan is on.
+- **Bot protection:** Cloudflare Turnstile, invisible to visitors. Put the widget's site key in
+  `window.XT_TURNSTILE_SITEKEY` in `site.js` and deploy *first*; then add `TURNSTILE_SECRET_KEY`. With the secret set
+  and no site key in the page, every submission is refused.
+- **Other checks:** submissions must come from the site itself; name and a valid email are required; fields are
+  length-limited; a hidden spam-trap field is ignored quietly.
+- **Reply:** each email arrives as a table (name, email, company, phone, topics, message, page) with the visitor
+  as Reply-To, so hitting Reply answers them directly.
 - **If sending fails** the visitor sees an error with the email address and keeps what they typed; the form
-  never claims success unless the message was accepted.
-- **Switching service** (Formspree, HubSpot, a ServiceNow endpoint): set it on every page before `site.js` loads.
-  The endpoint must accept JSON and answer with a 2xx status:
-  ```html
-  <script>window.XT_FORM_ENDPOINT = "https://…"</script>
-  ```
+  never claims success unless the email was accepted. Failures are logged in the Pages project's **Functions** logs.
 - **After any change:** submit a test from the live site and confirm the email arrives.
 
 **Limits to keep in mind (Cloudflare free plan):**

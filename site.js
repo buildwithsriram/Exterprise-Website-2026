@@ -1,17 +1,34 @@
 (() => {
   // Motion switch: false = full motion for everyone (designer review). Set to matchMedia('(prefers-reduced-motion: reduce)').matches to honor the OS setting.
   window.__CALM = false;
-  /* ===================== v86 form delivery: every contact form posts here and the message is emailed to contact@exterprise.us ===================== */
-  // FormSubmit (formsubmit.co) relays each submission to the inbox below. The very first submission sends a one-time
-  // "Activate form" email to that inbox; click it once and every later submission is delivered. To switch to another
-  // service (Formspree, HubSpot, ServiceNow...), set window.XT_FORM_ENDPOINT to its JSON endpoint before site.js loads.
-  window.XT_INBOX = 'contact@exterprise.us';
+  /* ===================== v87 form delivery: every contact form posts here and the message is emailed to contact@exterprise.us ===================== */
+  // Submissions go to the site's own Cloudflare function (functions/api/contact.js), which checks them and emails the
+  // inbox through Resend. Set XT_TURNSTILE_SITEKEY to the Turnstile widget's site key (widget mode: Invisible) to add
+  // Cloudflare's bot check; leave it empty to send without one. XT_FORM_ENDPOINT, if set before site.js loads, overrides /api/contact.
+  window.XT_TURNSTILE_SITEKEY = window.XT_TURNSTILE_SITEKEY || '';
+  const tsToken = () => new Promise((resolve, reject) => {
+    const key = window.XT_TURNSTILE_SITEKEY;
+    if (!key) return resolve('');
+    const timer = setTimeout(() => reject(new Error('verification timed out')), 15000);
+    const done = (fn, v) => { clearTimeout(timer); fn(v); };
+    const run = () => {
+      let box = document.getElementById('xt-ts');
+      if (!box) { box = document.createElement('div'); box.id = 'xt-ts'; document.body.appendChild(box); }
+      window.__xtTs = { ok: t => done(resolve, t), err: () => done(reject, new Error('verification failed')) };
+      if (window.__xtTsId == null) window.__xtTsId = window.turnstile.render(box, { sitekey: key, execution: 'execute', appearance: 'interaction-only',
+        callback: t => window.__xtTs.ok(t), 'error-callback': () => window.__xtTs.err(), 'timeout-callback': () => window.__xtTs.err() });
+      else window.turnstile.reset(window.__xtTsId);
+      window.turnstile.execute(window.__xtTsId);
+    };
+    if (window.turnstile) return run();
+    const s = document.createElement('script');
+    s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'; s.async = true;
+    s.onload = run; s.onerror = () => done(reject, new Error('verification unavailable'));
+    document.head.appendChild(s);
+  });
   window.__xtSend = async (fields) => {
-    const ep = window.XT_FORM_ENDPOINT || 'https://formsubmit.co/ajax/' + window.XT_INBOX;
-    const body = Object.assign({
-      _subject: 'Website inquiry from ' + [fields.Name, fields.Company].filter(v => v && v !== '-').join(', '),
-      _template: 'table', _captcha: 'false', _replyto: fields.Email || ''
-    }, fields);
+    const ep = window.XT_FORM_ENDPOINT || '/api/contact';
+    const body = Object.assign({}, fields, { token: await tsToken() });
     const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 20000);
     try {
       const r = await fetch(ep, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(body), signal: ctl.signal });
