@@ -65,9 +65,9 @@
           <h2 class="xm-h" id="xm-title"><span>Let's</span> <span>Talk!</span></h2>
           <p class="xm-lede">Talk to a ServiceNow architect about AI Agents, Now Assist, or your next implementation.</p>
           <ul class="xm-steps" aria-label="What happens next">
-            <li><b>01</b><span>Tell us what you're solving</span></li>
-            <li><b>02</b><span>An architect reviews it</span></li>
-            <li><b>03</b><span>We set up a working session</span></li>
+            <li><b>01</b><span>Tell us your challenges or what you're trying to solve</span></li>
+            <li><b>02</b><span>Our experts will review it</span></li>
+            <li><b>03</b><span>We will reach out and set up a meeting to discuss</span></li>
           </ul>
           <a class="xm-mail" href="mailto:${EMAIL}"><span>Prefer email?</span>${EMAIL}</a>
         </aside>

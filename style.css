@@ -4163,3 +4163,5 @@ html:root body .xp-fs.err{color:#FFB4AA!important}
 /* Turnstile bot check: kept out of the layout unless Cloudflare asks this visitor to click */
 .xt-ts:not(.show){position:absolute;width:0;height:0;overflow:hidden}
 .xt-ts.show{margin:2px 0 4px}
+/* Let's Talk pop-up steps: keep the number badges a fixed size when a step wraps to two lines */
+.xm-steps b{flex:none}
