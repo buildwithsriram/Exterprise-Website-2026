@@ -95,7 +95,7 @@
           <div class="xm-pane xm-done" aria-live="polite">
             <span class="xm-tick" aria-hidden="true"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-16"/></svg></span>
             <h3>Thank you<span class="xm-who"></span>.</h3>
-            <p class="xm-done-p">Your message is on its way. A ServiceNow architect will get back to you within one business day.</p>
+            <p class="xm-done-p">Your message is on its way. We will get back to you ASAP.</p>
             <button class="neo neo-btn neo-ghost" type="button" data-xm-close><span class="neo-t">Close</span><span class="neo-ic">${ARW}</span></button>
           </div>
         </form>
