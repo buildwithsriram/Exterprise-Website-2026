@@ -4160,3 +4160,6 @@ html:root body .xp-fs.err{color:#FFB4AA!important}
   html body .kt-solo .kt-1::after{margin-top:.24em}
   html body section.ra .ra-head>.nb-side>p{margin-top:22px!important}
 }
+/* Turnstile bot check: kept out of the layout unless Cloudflare asks this visitor to click */
+.xt-ts:not(.show){position:absolute;width:0;height:0;overflow:hidden}
+.xt-ts.show{margin:2px 0 4px}

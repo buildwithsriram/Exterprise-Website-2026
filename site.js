@@ -3,32 +3,42 @@
   window.__CALM = false;
   /* ===================== v87 form delivery: every contact form posts here and the message is emailed to contact@exterprise.us ===================== */
   // Submissions go to the site's own Cloudflare function (functions/api/contact.js), which checks them and emails the
-  // inbox through Resend. Set XT_TURNSTILE_SITEKEY to the Turnstile widget's site key (widget mode: Invisible) to add
-  // Cloudflare's bot check; leave it empty to send without one. XT_FORM_ENDPOINT, if set before site.js loads, overrides /api/contact.
-  window.XT_TURNSTILE_SITEKEY = window.XT_TURNSTILE_SITEKEY || '';
-  const tsToken = () => new Promise((resolve, reject) => {
-    const key = window.XT_TURNSTILE_SITEKEY;
-    if (!key) return resolve('');
-    const timer = setTimeout(() => reject(new Error('verification timed out')), 15000);
-    const done = (fn, v) => { clearTimeout(timer); fn(v); };
-    const run = () => {
-      let box = document.getElementById('xt-ts');
-      if (!box) { box = document.createElement('div'); box.id = 'xt-ts'; document.body.appendChild(box); }
-      window.__xtTs = { ok: t => done(resolve, t), err: () => done(reject, new Error('verification failed')) };
-      if (window.__xtTsId == null) window.__xtTsId = window.turnstile.render(box, { sitekey: key, execution: 'execute', appearance: 'interaction-only',
-        callback: t => window.__xtTs.ok(t), 'error-callback': () => window.__xtTs.err(), 'timeout-callback': () => window.__xtTs.err() });
-      else window.turnstile.reset(window.__xtTsId);
-      window.turnstile.execute(window.__xtTsId);
-    };
-    if (window.turnstile) return run();
+  // inbox through Resend. XT_TURNSTILE_SITEKEY is the Cloudflare Turnstile site key (widget mode: Managed): most visitors
+  // see nothing, and the few Cloudflare wants to check get a checkbox just above the form's Send button. Set it to ''
+  // to send without the check. XT_FORM_ENDPOINT, if set before site.js loads, overrides /api/contact.
+  window.XT_TURNSTILE_SITEKEY = window.XT_TURNSTILE_SITEKEY ?? '0x4AAAAAAGO81bOi4S_YsYDq';
+  let tsLoad = null;
+  const tsReady = () => tsLoad || (tsLoad = new Promise((res, rej) => {
+    if (window.turnstile) return res();
     const s = document.createElement('script');
     s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'; s.async = true;
-    s.onload = run; s.onerror = () => done(reject, new Error('verification unavailable'));
+    s.onload = () => res(); s.onerror = () => { tsLoad = null; rej(new Error('verification unavailable')); };
     document.head.appendChild(s);
-  });
-  window.__xtSend = async (fields) => {
+  }));
+  const tsToken = async (form) => {
+    const key = window.XT_TURNSTILE_SITEKEY;
+    if (!key || !form) return '';
+    await tsReady();
+    return new Promise((resolve, reject) => {
+      const timer = setTimeout(() => reject(new Error('verification timed out')), 15000);   // paused once a visitor is asked to click
+      const done = (fn, v) => { clearTimeout(timer); box.classList.remove('show'); fn(v); };
+      let box = form.querySelector('.xt-ts');
+      if (!box) {
+        box = document.createElement('div'); box.className = 'xt-ts';
+        const row = form.querySelector('[type=submit]').parentElement; row.parentElement.insertBefore(box, row);
+      }
+      box.__cb = { ok: t => done(resolve, t), err: () => done(reject, new Error('verification failed')),
+                   ask: () => { clearTimeout(timer); box.classList.add('show'); } };
+      if (!box.dataset.wid) box.dataset.wid = window.turnstile.render(box, { sitekey: key, theme: 'dark', execution: 'execute', appearance: 'interaction-only',
+        callback: t => box.__cb.ok(t), 'error-callback': () => box.__cb.err(), 'timeout-callback': () => box.__cb.err(),
+        'before-interactive-callback': () => box.__cb.ask() });
+      else window.turnstile.reset(box.dataset.wid);
+      window.turnstile.execute(box.dataset.wid);
+    });
+  };
+  window.__xtSend = async (fields, form) => {
     const ep = window.XT_FORM_ENDPOINT || '/api/contact';
-    const body = Object.assign({}, fields, { token: await tsToken() });
+    const body = Object.assign({}, fields, { token: await tsToken(form) });
     const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 20000);
     try {
       const r = await fetch(ep, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(body), signal: ctl.signal });
@@ -134,7 +144,7 @@
         try {
           if (window.__PREVIEW) throw new Error('preview');
           await window.__xtSend({ Name: d.get('name'), Email: d.get('email'), Company: d.get('company') || '-', Phone: d.get('phone') || '-',
-            Topics: topics || '-', Message: d.get('message') || '-', Page: d.get('source') || document.title, URL: location.href });
+            Topics: topics || '-', Message: d.get('message') || '-', Page: d.get('source') || document.title, URL: location.href }, form);
         } catch (x) { form.classList.remove('sending'); err.hidden = false; return; }
         m.querySelector('.xm-who').textContent = d.get('name') ? ', ' + String(d.get('name')).trim().split(/\s+/)[0] : '';
         form.classList.remove('sending'); form.classList.add('sent');
@@ -1183,7 +1193,7 @@ void main(){vec2 uv=gl_FragCoord.xy/R;vec2 q=uv;q.y=1.-q.y;
       const btn = f.querySelector('[type=submit]'); btn.disabled = true; st.classList.remove('err'); st.textContent = 'Sending…';
       try {
         await window.__xtSend({ Name: data.name, Email: data.email, Company: data.company || '-', Phone: data.phone || '-',
-          'Interested in': data.interest || '-', Message: data.message, Page: document.title, URL: location.href });
+          'Interested in': data.interest || '-', Message: data.message, Page: document.title, URL: location.href }, f);
         f.reset(); st.textContent = 'Thank you! We have received your message and someone from our team will be in touch soon.';
       } catch (e) {
         st.classList.add('err');
