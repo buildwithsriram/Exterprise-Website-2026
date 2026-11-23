@@ -88,7 +88,6 @@
             <input class="xm-hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
             <p class="xm-err" role="alert" hidden>We couldn't send your message just now. Please try again, or email us at <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>
             <div class="xm-foot">
-              <p class="xm-note">We reply within one business day.</p>
               <button class="neo neo-btn neo-white xm-send" type="submit"><span class="neo-t">Send Message</span><span class="neo-ic">${ARW}</span></button>
             </div>
           </div>

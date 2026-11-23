@@ -1500,7 +1500,7 @@ html.xm-lock,html.xm-lock body{overflow:hidden}
 .xm-tp input:checked+span{color:#1A1206;background:linear-gradient(90deg,#FFE2A8,#F7B23B 55%,#F39C1A);box-shadow:0 8px 24px -10px rgba(243,156,26,.7);transform:translateY(-1px)}
 .xm-tp input:checked+span::before{background:#1A1206;box-shadow:none}
 .xm-tp input:focus-visible+span{outline:2px solid #F39C1A;outline-offset:3px}
-.xm-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:4px}
+.xm-foot{display:flex;align-items:center;justify-content:flex-end;gap:16px;margin-top:4px}
 .xm-note{margin:0;font-size:14.5px;color:rgba(255,255,255,0.70)}
 .xm-send{flex:none}
 .xm-form.sending .xm-send{pointer-events:none;opacity:.7}
